@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid Placement</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    .container {
+      height: 100vh;
+      display: grid;
+      gap: 3rem;
+      grid-template-columns: 1fr 1fr 1.5fr;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    .item {
+      font-size: 5rem;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: blueviolet;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+
+    .cowboy {
+      background-color: #00B9FF;
+      grid-column: span 2;
+    }
+
+    .astronaut {
+      background-color: #03989E;
+      order: 1;
+
+      /* TODO: Make the astronaut box look like the goal2 image. */
+
+      grid-area: 2 / 1 / 3 / 3;
+
+      /*
+        grid-area Property Documentation
+        
+        Purpose:
+        Specifies the size and location of a grid item within a CSS Grid container.
+        
+        Syntax:
+        grid-area: <row-start> / <column-start> / <row-end> / <column-end>;
+        
+        Current Usage Example:
+        grid-area: 2 / 1 / 3 / 2;
+        
+        Breakdown:
+        - Row Start: 2       → Item begins at the 2nd horizontal grid line
+        - Column Start: 1    → Item begins at the 1st vertical grid line
+        - Row End: 3         → Item ends before the 3rd horizontal grid line
+        - Column End: 2      → Item ends before the 2nd vertical grid line
+        
+        Result:
+        Places a single grid item (1 row × 1 column) at the intersection of row 2 and column 1.
+        
+        Notes:
+        - Grid lines are numbered starting from 1
+        - This property is a shorthand for: grid-row-start, grid-column-start, grid-row-end, grid-column-end
+        - Requires parent element to have display: grid applied
+        - Useful for precise control over item placement in complex grid layouts
+      */
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="item cowboy">🤠</div>
+    <div class="item astronaut">👨‍🚀</div>
+    <div class="item book">📖</div>
+  </div>
+</body>
+
+</html>
